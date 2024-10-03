@@ -3,7 +3,7 @@ use std::io;
 fn main() {
     let mut input = String::new();
     let _ = io::stdin().read_line(&mut input);
-    let chars: Vec<char> = input.trim().chars().collect();
+    let chars: Vec<char> = input.chars().collect();
     let mut borders: (usize, usize) = (0, 0);
     find_longest_palindrome(&chars, &mut borders);
     let mut i = borders.0;
