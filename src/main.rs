@@ -5,6 +5,9 @@ fn main() {
     let _ = io::stdin().read_line(&mut input);
     let chars: Vec<char> = input.chars().collect();
     let mut borders: (usize, usize) = (0, 0);
+    if chars.len() == 0 {
+        return;
+    }
     find_longest_palindrome(&chars, &mut borders);
     let mut i = borders.0;
     loop {
@@ -42,6 +45,7 @@ fn find_longest_palindrome(string: &Vec<char>, borders: &mut (usize, usize)) {
             left -= 1;
             right += 1;
         }
+
         if current_length > max_length {
             max_length = current_length;
             left_saved = left;
