@@ -32,7 +32,7 @@ fn find_longest_palindrome(string: &Vec<u8>, borders: &mut (usize, usize), even:
         }
         loop {
             if string[left] != string[right] {
-                if right - left > 2 {
+                if right - left >= 2 {
                     left += 1;
                     right -= 1;
                 }
@@ -47,7 +47,7 @@ fn find_longest_palindrome(string: &Vec<u8>, borders: &mut (usize, usize), even:
             right += 1;
         }
 
-        if right - left + 1 > max_length {
+        if right - left + 1 > max_length && string[right] == string[left] {
             max_length = right - left + 1;
             left_saved = left;
             right_saved = right;
